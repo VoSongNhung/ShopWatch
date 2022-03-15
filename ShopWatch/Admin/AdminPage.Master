@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminPage.master.cs" Inherits="ShopWatch.Admin.AdminPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #header2{
+            height:103px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        #header2 span{
+            color:red;
+            font-weight:bold;
+        }
+
+
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        #menu{
+            z-index:10;
+            background-color:white;
+            height:44px;
+            line-height:44px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            border-bottom:thin solid;
+        }
+        #menu ul{
+			list-style-type:none;
+		}
+		#menu ul li{
+			display:inline-block;
+            position:relative;
+			height:44px;
+			line-height:44px;
+			text-align:center;
+            font-family:"Roboto",sans-serif;
+            font-weight:bold;
+            margin:0px 10px;
+		}
+        #menu ul li:hover .btMenu{
+			color:red;
+		}
+        .btMenu{
+			text-decoration:none;
+            color:black;
+        }
+        .menu2{
+            background-color:white;
+            display:none;
+            position:absolute;
+            width:200px;
+            text-align:left;
+        }
+        .menu2 a{
+            text-decoration:none;
+        }
+        #menu ul li:hover .menu2{
+            display:block;
+        }
+        
+
+
+
+        
+    </style>
+</head>
+<body>
+    <div id="header2">
+        <div style="width:80%;">
+            <table cellpadding="0" cellspacing="0" style="height:103px;">
+                <tr style="text-align:center;">
+                    <td style="width:22%;">
+                        <a href="#"><img width="235" height="103" src="../Image/logo-shopwatch.png" alt="ShopWatch – Đồng hồ chính hãng"/></a>
+                    </td>
+                    <td style="width:22%;">
+                    </td>
+                    <td style="width:22%;">
+                    </td>
+                    <td style="width:22%;">
+                    </td>
+                    <td style="width:12%;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><asp:HyperLink ID="HyperLink1" NavigateUrl="~/Home.aspx" CssClass="btMenu" runat="server">TRANG CHỦ</asp:HyperLink></li>
+            <li><asp:HyperLink ID="HyperLink8" NavigateUrl="~/Admin/InsertWatch.aspx" CssClass="btMenu" runat="server">THÊM SẢN PHẨM</asp:HyperLink></li>
+             <li><asp:HyperLink ID="HyperLink3" NavigateUrl="~/Admin/QuanLySanPham.aspx" CssClass="btMenu" runat="server">QUẢN LÝ SẢN PHẨM</asp:HyperLink></li>
+            <li><asp:HyperLink ID="HyperLink2" NavigateUrl="~/Admin/Orders.aspx" CssClass="btMenu" runat="server">DUYỆT ĐƠN</asp:HyperLink></li>
+        </ul>
+    </div>
+
+    <form id="form1" runat="server">
+        <div style="display: flex;justify-content: center;">
+            <div style="width:80%;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    
+
+    <script>
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("menu");
+        var sticky = header.offsetTop;
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            }
+            else{
+                header.classList.remove("sticky");
+            }
+        }
+</script>
+</body>
+</html>
+

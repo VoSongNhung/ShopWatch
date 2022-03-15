@@ -1,0 +1,242 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="ShopWatch.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #header1{
+            background-color:red;
+            color:white;
+            height:44px;
+            line-height:44px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        #header2{
+            height:103px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        #header2 span{
+            color:red;
+            font-weight:bold;
+        }
+
+
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        #menu{
+            z-index:10;
+            background-color:white;
+            height:44px;
+            line-height:44px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            border-bottom:thin solid;
+        }
+        #menu ul{
+			list-style-type:none;
+		}
+		#menu ul li{
+			display:inline-block;
+            position:relative;
+			height:44px;
+			line-height:44px;
+			text-align:center;
+            font-family:"Roboto",sans-serif;
+            font-weight:bold;
+            margin:0px 10px;
+		}
+        #menu ul li:hover .btMenu{
+			color:red;
+		}
+        .btMenu{
+			text-decoration:none;
+            color:black;
+        }
+        .menu2{
+            z-index:10;
+            background-color:white;
+            display:none;
+            position:absolute;
+            width:200px;
+            text-align:left;
+        }
+        .menu2 a{
+            text-decoration:none;
+        }
+        #menu ul li:hover .menu2{
+            display:block;
+        }
+        
+
+
+
+        #footer1{
+            background-color:#5b5b5b;
+            color:white;
+            height:48px;
+            line-height:48px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            margin-top:auto;
+        }
+        #footer2{
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        #footer2 td{
+            width:33%;
+            vertical-align:top;
+            line-height:30px;
+            padding-right:10px;
+        }
+        #footer2 span{
+            font-weight:bold;
+        }
+        #footer2 a{
+            color:red;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header1">
+        <div style="width:80%;">
+            ShopWatch - Đồng hồ chính hãng uy tín
+        </div>
+    </div>
+    <div id="header2">
+        <div style="width:80%;">
+            <table cellpadding="0" cellspacing="0" style="height:103px;">
+                <tr style="text-align:center;">
+                    <td style="width:22%;">
+                        <a href="Home.aspx"><img width="235" height="103" src="../Image/logo-shopwatch.png" alt="ShopWatch – Đồng hồ chính hãng"/></a>
+                    </td>
+                    <td style="width:22%;">
+                        <span>ĐỊA CHỈ</span>
+                        <br />218 LÊ DUẨN - HÀ NỘI
+                    </td>
+                    <td style="width:22%;">
+                        <span>MUA HÀNG</span>
+                        <br />097.559.2299
+                    </td>
+                    <td style="width:22%;">
+                        <span>CAM KẾT</span>
+                        <br />100% CHÍNH HÃNG
+                    </td>
+                    <td style="width:12%;">
+                        <a href="searchW.aspx"><img width="40" src="../Image/search.png"/></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><asp:HyperLink ID="HyperLink1" NavigateUrl="~/Home.aspx" CssClass="btMenu" runat="server">TRANG CHỦ</asp:HyperLink></li>
+        	<li><asp:HyperLink ID="HyperLink2" NavigateUrl="~/veshopwatch.aspx" CssClass="btMenu" runat="server">VỀ SHOPWATCH</asp:HyperLink></li>
+            <li>
+                <asp:HyperLink ID="HyperLink3" NavigateUrl="#" CssClass="btMenu" runat="server">THƯƠNG HIỆU</asp:HyperLink>
+                <ul class="menu2">
+                    <li><a href="Seiko.aspx">ĐỒNG HỒ SEIKO</a></li>
+                    <li><a href="Casio.aspx">ĐỒNG HỒ CASIO</a></li>
+                    <li><a href="Orient.aspx">ĐỒNG HỒ ORIENT</a></li>
+                    <li><a href="Bentley.aspx">ĐỒNG HỒ BENTLEY</a></li>
+                    <li><a href="Op.aspx">ĐỒNG HỒ OP</a></li>
+                    <li><a href="Citizen.aspx">ĐỒNG HỒ CITIZEN</a></li>
+                </ul>
+            </li>
+            <li><asp:HyperLink ID="HyperLink4" NavigateUrl="~/DongHoNam.aspx" CssClass="btMenu" runat="server">ĐỒNG HỒ NAM</asp:HyperLink></li>
+            <li><asp:HyperLink ID="HyperLink5" NavigateUrl="~/DongHoNu.aspx" CssClass="btMenu" runat="server">ĐỒNG HỒ NỮ</asp:HyperLink></li>
+            <li>
+                <asp:HyperLink ID="HyperLink6" NavigateUrl="#" CssClass="btMenu" runat="server">PHỤ KIỆN</asp:HyperLink>
+                <ul class="menu2">
+                    <li><a href="HopDungDongHo.aspx">HỘP ĐỰNG ĐỒNG HỒ</a></li>
+                    <li><a href="DayDongHo.aspx">DÂY ĐỒNG HỒ</a></li>
+                </ul>
+            </li>
+            <li><asp:HyperLink ID="HyperLink7" NavigateUrl="~/lienhe.aspx" CssClass="btMenu" runat="server">LIÊN HỆ</asp:HyperLink></li>
+
+        </ul>
+    </div>
+
+    <form id="form1" runat="server">
+        <div style="display: flex;justify-content: center;">
+            <div style="width:80%;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    <br />
+    <div id="footer2">
+        <div style="width:80%;">
+            <table cellpadding="0" cellspacing="0" style="height:103px;">
+                <tr>
+                    <td>
+                        <span>GIỚI THIỆU</span>
+                        <br /><img width="258" height="120" src="../Image/logo-shopwatch.png"/>
+                        <br />ShopWatch - Đại lý đồng hồ đeo tay chính hãng cao cấp. Cung cấp các dòng đồng hồ Nhật Bản, Thụy Sĩ cao cấp với mức giá ưu đãi - Bảo hình chĩnh hãng chuẩn Thụy Sĩ 5 năm - Cam kết Fake hoàn tiền 10X lần giá trị
+                    </td>
+                    <td>
+                        <span>THÔNG TIN LIÊN HỆ</span>
+                        <br />Showroom: Số 218 Lê Duẩn - Hà Nội
+                        <br />Hotline: 097.559.2299
+                        <br />Website:shopwatch.vn
+                        <br />Email : hotroshopwatch@gmail.com
+                        <br />Giờ mở cửa: 9h00- 19h30
+                        <br />Tất cả các ngày trong tuần
+                        <br /><img width="50" src="../Image/facebook.png"/>
+                        <img width="50" src="../Image/youtube.png"/>
+                        <img width="50" src="../Image/google-maps.png"/>
+                    </td>
+                    <td>
+                        <span>CHÍNH SÁCH DỊCH VỤ</span>
+                        <br /><a href="veshopwatch.aspx">Giới thiệu ShopWatch</a>
+                        <br /><a href="veshopwatch.aspx">Chính sách bảo mật</a>
+                        <br /><a href="veshopwatch.aspx">Điều khoản dịch vụ</a>
+                        <br /><a href="veshopwatch.aspx">Chính sách bảo hành</a>
+                        <br /><a href="lienhe.aspx">Liên hệ tư vấn</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="footer1">
+        <div style="width:80%;">
+            Bản quyền thuộc về 2020 © ShopWatch
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("menu");
+        var sticky = header.offsetTop;
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            }
+            else{
+                header.classList.remove("sticky");
+            }
+        }
+</script>
+</body>
+</html>
